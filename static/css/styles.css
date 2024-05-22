@@ -1,0 +1,33 @@
+html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.container-fluid {
+  flex: 1;
+}
+
+.footer {
+  flex-shrink: 0;
+}
+
+.btn-group .btn {
+  margin-right: 5px;
+}
+
+.fa-lg {
+    font-size: 1.5em;
+}
+
+.list-group-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.list-group-item > .d-flex {
+  margin-bottom: 10px;
+}
