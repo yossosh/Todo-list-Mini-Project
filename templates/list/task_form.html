@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+
+{% block title %}{{ form.instance.pk|yesno:"Update Task,Add Task" }}{% endblock %}
+
+{% block content %}
+<h1>{{ form.instance.pk|yesno:"Update Task,Add Task" }}</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>
+{% endblock %}
+
