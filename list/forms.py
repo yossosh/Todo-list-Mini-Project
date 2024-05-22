@@ -43,4 +43,4 @@ class TaskUpdateForm(forms.ModelForm):
 class TagForm(forms.ModelForm):
     class Meta:
         model = Tag
-        fields = ['name']
+        fields = ["name"]
