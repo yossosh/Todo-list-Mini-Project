@@ -29,12 +29,17 @@
             <div class="btn-group mt-2" role="group" aria-label="Basic example">
                 <a href="{% url 'list:update_task' task.pk %}" class="btn btn-sm btn-outline-secondary">Update</a>
                 <a href="{% url 'list:delete_task' task.pk %}" class="btn btn-sm btn-outline-danger">Delete</a>
+                {% if not task.is_done %}
                 <form method="post" action="{% url 'list:toggle_task_status' task.pk %}" style="display:inline;">
                     {% csrf_token %}
-                    <button type="submit" class="btn btn-sm btn-outline-primary">
-                        {% if task.is_done %}Undo{% else %}Complete{% endif %}
-                    </button>
+                    <button type="submit" class="btn btn-sm btn-outline-primary">Complete</button>
                 </form>
+                {% else %}
+                <form method="post" action="{% url 'list:toggle_task_status' task.pk %}" style="display:inline;">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-sm btn-outline-warning">Undo</button>
+                </form>
+                {% endif %}
             </div>
         </li>
     {% endfor %}
