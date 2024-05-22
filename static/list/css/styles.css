@@ -37,3 +37,21 @@ body {
 .list-group-item > .d-flex {
   margin-bottom: 10px;
 }
+
+.card {
+  margin-top: 20px;
+}
+
+.card-header {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.text-center a {
+  margin: 0 10px;
+  color: #6c757d;
+}
+
+.text-center a:hover {
+  color: #495057;
+}

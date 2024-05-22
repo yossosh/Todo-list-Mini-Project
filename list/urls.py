@@ -7,6 +7,7 @@ from .views import (
     TaskUpdateView,
     TaskDeleteView,
     TaskToggleStatusView,
+    RegisterView,
 )
 
 app_name = "list"
