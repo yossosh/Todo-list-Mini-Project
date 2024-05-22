@@ -9,7 +9,7 @@ class TagAdmin(admin.ModelAdmin):
     ordering = ("name",)
 
 
-@@admin.register(Task)
+@admin.register(Task)
 class TaskAdmin(admin.ModelAdmin):
     list_display = ("content", "created_at", "deadline", "is_done")
     list_filter = ("is_done", "created_at", "deadline")
