@@ -6,7 +6,8 @@
       </a>
 
       <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-        <li><a href="#" class="nav-link px-2 text-secondary">Home</a></li>
+        <li><a href="{% url 'list:home' %}" class="nav-link px-2 text-secondary">Home</a></li>
+        <li><a href="{% url 'list:tag_list' %}" class="nav-link px-2 text-white">Tags</a></li>
         <li><a href="#" class="nav-link px-2 text-white">Features</a></li>
         <li><a href="#" class="nav-link px-2 text-white">Pricing</a></li>
         <li><a href="#" class="nav-link px-2 text-white">FAQs</a></li>
@@ -18,8 +19,7 @@
       </form>
 
       <div class="text-end">
-        <button type="button" class="btn btn-outline-light me-2">Login</button>
-        <button  type="button" class="btn btn-warning">Sign-up</button>
+        <a href="{% url 'login' %}" class="btn btn-outline-light me-2">Login</a>
       </div>
     </div>
   </div>
