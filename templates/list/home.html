@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}TODO List{% endblock %}
+
+{% block content %}
+<h1>TODO list</h1>
+<a href="{% url 'list:add_task' %}" class="btn btn-primary mb-3">Add task</a>
+<ul class="list-group">
+    {% for task in tasks %}
+        <li class="list-group-item">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <strong>{{ task.content }}</strong>
+                    <div class="small text-muted">
+                        Created: {{ task.created_at }}{% if task.deadline %}, Deadline: {{ task.deadline }}{% endif %}
+                    </div>
+                    <div class="small">
+                        Tags: {% for tag in task.tags.all %}{{ tag.name }} {% endfor %}
+                    </div>
+                </div>
+                <div>
+                    {% if task.is_done %}
+                        <i class="fas fa-check-circle text-success fa-lg"></i>
+                    {% else %}
+                        <i class="fas fa-times-circle text-danger fa-lg"></i>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="btn-group mt-2" role="group" aria-label="Basic example">
+                <a href="{% url 'list:update_task' task.pk %}" class="btn btn-sm btn-outline-secondary">Update</a>
+                <a href="{% url 'list:delete_task' task.pk %}" class="btn btn-sm btn-outline-danger">Delete</a>
+                {% if not task.is_done %}
+                <form method="post" action="{% url 'list:toggle_task_status' task.pk %}" style="display:inline;">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-sm btn-outline-primary">Complete</button>
+                </form>
+                {% else %}
+                <form method="post" action="{% url 'list:toggle_task_status' task.pk %}" style="display:inline;">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-sm btn-outline-warning">Undo</button>
+                </form>
+                {% endif %}
+            </div>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}
