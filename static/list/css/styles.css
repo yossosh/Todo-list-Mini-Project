@@ -1,10 +1,12 @@
 html, body {
   height: 100%;
+  margin: 0;
 }
 
 body {
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
 }
 
 .container-fluid {
@@ -13,6 +15,10 @@ body {
 
 .footer {
   flex-shrink: 0;
+  padding: 1rem;
+  background-color: #343a40;
+  color: white;
+  text-align: center;
 }
 
 .btn-group .btn {
@@ -20,7 +26,7 @@ body {
 }
 
 .fa-lg {
-    font-size: 1.5em;
+  font-size: 1.5em;
 }
 
 .list-group-item {
